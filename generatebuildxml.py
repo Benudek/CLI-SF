@@ -128,8 +128,8 @@ def main(argv):
     print(list_tests_torun)
 
     ## we always run all tests that need to work whatever is deployed 
-    #allprojecttests = excel_sheet.loc[(excel_sheet['TestKoneWide'] == 'yes' ) | ((excel_sheet['Project'] == 'FSM' | excel_sheet['Project'] == 'SHARED') & excel_sheet['TestProjectWide'] == 'yes'), 'TestsToRun1']
-    allprojecttests = excel_sheet.loc[((excel_sheet['TestKoneWide'] == 'yes' ) |  ((excel_sheet['TestProjectWide'] == 'yes') & ((excel_sheet['Project'] == projectteam)) | (excel_sheet['Project'] == 'SHARED'))), 'TestsToRun1':'TestsToRun10']
+    #allprojecttests = excel_sheet.loc[(excel_sheet['TestXXXWide'] == 'yes' ) | ((excel_sheet['Project'] == 'FSM' | excel_sheet['Project'] == 'SHARED') & excel_sheet['TestProjectWide'] == 'yes'), 'TestsToRun1']
+    allprojecttests = excel_sheet.loc[((excel_sheet['TestXXXWide'] == 'yes' ) |  ((excel_sheet['TestProjectWide'] == 'yes') & ((excel_sheet['Project'] == projectteam)) | (excel_sheet['Project'] == 'SHARED'))), 'TestsToRun1':'TestsToRun10']
    
     list_enum_allprojecttests = allprojecttests.values.tolist() #enumerate(plus_test_lists) #list(enumerate(plus_test_lists))
     flat_list_enum_allprojecttests = [item for sublist in list_enum_allprojecttests for item in sublist]
@@ -148,10 +148,10 @@ def main(argv):
     ## now we add tests that the develper requested per targy with a REST CALL
     
     ## TO DO: set better user
-    username = 'bherudek@salesforce.com'
-    password = 'Tanzen03'
-    top_level_url = 'https://kone.tpondemand.com'
-    url = 'https://kone.tpondemand.com/api/v1/UserStories/' + change_no + '/tasks/'
+    username = 'ABC@XYZ.com'
+    password = 'XYZ'
+    top_level_url = 'https://xyz.tpondemand.com'
+    url = 'https://xyz.tpondemand.com/api/v1/UserStories/' + change_no + '/tasks/'
     r = requests.get(url, auth=(username, password), stream=True)  
     page = r.content
     soup = BeautifulSoup(str(page),  'html.parser') #'lxml')
