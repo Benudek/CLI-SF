@@ -103,8 +103,8 @@ def main(argv):
     #logmessage = 'TESTLOGHERE' # could be a file name, see generatebuildxml.py for example file open
     
     ## TO DO replace with generic bot user    
-    username = 'bherudek@salesforce.com'
-    password = 'Tanzen03'
+    username = 'eee@aaa.com'
+    password = 'XYZ'
     top_level_url = 'https://kone.tpondemand.com'
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
